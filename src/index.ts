@@ -1,3 +1,3 @@
-import { Observable } from "rxjs"
+import { user } from "./sample-subject"
 
-
+user
