@@ -29,3 +29,17 @@ export const SampleObservable2 = new Observable(function subscribe(subscriber) {
     clearInterval(intervalId)
   }
 })
+
+
+const SampleObservable3 = new Observable((observable) => {
+  let i = 0
+  const interval = setInterval(()=>{
+    observable.next(i)
+    i++
+    if (i === 2) observable.complete()
+  }, 2000)
+  
+  return () => clearInterval(interval)
+})
+
+SampleObservable3.subscribe((val) => console.log(val))
