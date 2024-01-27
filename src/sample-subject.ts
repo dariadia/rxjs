@@ -24,6 +24,6 @@ _user.subscribe({
   complete: () => userSubject.complete()
 })
 
-const sub = userSubject.subscribe(console.log)
+userSubject.subscribe(console.log)
 
 export const user = _user
