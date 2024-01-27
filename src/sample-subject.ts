@@ -18,7 +18,7 @@ const _user = ajax
   .getJSON<UserResponse>('https://reqres.in/api/users/2')
   .pipe(map((response) => response.data))
 
-  _user.subscribe({
+_user.subscribe({
   next: (user) => userSubject.next(user),
   error: (e) => userSubject.error(e),
   complete: () => userSubject.complete()
