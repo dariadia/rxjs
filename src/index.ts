@@ -1,12 +1,22 @@
-import { SampleObservable, SampleObservable2 } from './sample-observable'
+import { Sub } from "./sub"
 
 const app = document.getElementById("app")!
-SampleObservable.subscribe(
-  (value) => (app.innerHTML = 
-    `${app.innerHTML}<br><span style="color: purple">${value}</span>`)
+
+/* Each subscription receives a copy of Observer. */
+const subscription = Sub.subscribe((value) =>
+(app.innerHTML =
+  `${app.innerHTML}<br><span style="color: green">First: ${value}</span>`)
+)
+setTimeout(
+  () =>
+    subscription.add(
+      Sub.subscribe((value) => (app.innerHTML =
+        `${app.innerHTML}<br><span style="color: purple">First: ${value}</span>`))
+    ),
+  500
 )
 
-SampleObservable2.subscribe(
-  (value) => (app.innerHTML = 
-    `${app.innerHTML}<br><span style="color: green">${value}</span>`)
-)
+/* Unsubscribe after 5 seconds. */
+setTimeout(() => {
+  subscription.unsubscribe()
+}, 5000)
