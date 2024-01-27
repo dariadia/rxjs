@@ -1,6 +1,3 @@
-import { SampleObservable } from './sample-observable'
+import { user } from "./sample-subject"
 
-const app = document.getElementById("app")!
-SampleObservable.subscribe(
-  (value) => (app.innerHTML = `${app.innerHTML}<br>${value}`)
-)
+user
