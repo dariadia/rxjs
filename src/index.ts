@@ -11,7 +11,7 @@ setTimeout(
   () =>
     subscription.add(
       Sub.subscribe((value) => (app.innerHTML =
-        `${app.innerHTML}<br><span style="color: purple">First: ${value}</span>`))
+        `${app.innerHTML}<br><span style="color: purple">Second: ${value}</span>`))
     ),
   500
 )
