@@ -1,4 +1,4 @@
 # RxJs
 Study materials
 
-(rxjs.dev)[https://rxjs.dev/guide/overview]
+[rxjs.dev](https://rxjs.dev/guide/overview)
