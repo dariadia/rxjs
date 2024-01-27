@@ -1,3 +1,3 @@
-import { user } from "./sample-subject"
+import { multicasted } from "./multicast"
 
-user
+multicasted
