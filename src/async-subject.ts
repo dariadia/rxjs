@@ -1,6 +1,7 @@
 import { AsyncSubject } from 'rxjs'
 
 // AsyncSubject emits ONLY the last value to all Observers ON completion.
+// Basically, always just log the last value, even if omitted before subscription.
 
 const asyncSubject = new AsyncSubject<number>()
 asyncSubject.subscribe({
