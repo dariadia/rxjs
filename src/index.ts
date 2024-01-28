@@ -1,3 +1,3 @@
-import replaySubject from "./replay-subject";
+import calc from "./replay-calc";
 
-replaySubject
+calc
