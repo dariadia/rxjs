@@ -1,3 +1,3 @@
-import asyncSubject from "./async-subject"
+import asyncSubject from "./async-mouse"
 
 asyncSubject
