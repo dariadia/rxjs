@@ -7,6 +7,7 @@ import { BehaviorSubject } from "rxjs"
 // When the BehaviorSubject emits an error notification, all Observers receive the error notification, including those Observers that subscribed after the error notification.
 
 // Basically: see the one earlier post before you subscribed to a channel.
+// If subscribed after complete - just get the complete text.
 
 /* Create an instance of BehaviorSubject. */
 const behaviorSubject = new BehaviorSubject<number>(0)
@@ -22,6 +23,8 @@ behaviorSubject.subscribe({
 behaviorSubject.next(1)
 behaviorSubject.next(2)
 behaviorSubject.next(3)
+
+behaviorSubject.complete()
 
 /* Subscribe late to subject. */
 behaviorSubject.subscribe({
