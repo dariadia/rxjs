@@ -26,3 +26,7 @@ observable.subscribe({
 As expected, the error function is invoked with the error value, which we are then using console.error() to log the error.
 When we run this code we should see a single error message displaying in the console.
 
+
+## Try/catch
+
+When using Observables we should NOT USE the try...catch operators. This is because all error cases are ASYNChronous. This means that try/catch will not be able to catch an error that occurs in either the production of next notification values in a cold Observable or within an operator that accepts a function.
