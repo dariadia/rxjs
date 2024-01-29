@@ -1,3 +1,3 @@
-import calc from "./replay-calc";
+import webSocketSubject from "./websocket-config";
 
-calc
+webSocketSubject
