@@ -1,10 +1,40 @@
 <html>
-  <head>
-    <title>Sandbox</title>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="src/index.ts"></script>
-  </body>
+
+<head>
+  <title>Parcel Sandbox</title>
+  <meta charset="UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="h-screen flex flex-col">
+    <div class="bg-white flex border-b px-5 py-3 items-center justify-between">
+      <h1 class="text-lg text-purple-800">RxJS Course</h1>
+      <img src="https://rxjs-course.dev/img/logo.png" class="object-contain h-12" />
+    </div>
+    <div class="bg-purple-100 flex-grow">
+      <div class="container mx-auto h-full w-full flex items-center justify-center">
+        <div class="flex flex-col items-stretch">
+          <form id="login">
+            <div class="m-4">
+              <input name="email" id="email"
+                class="shadow appearance-none border rounded w-full my-2 py-2 px-4 focus:outline-none focus:shadow-outline"
+                placeholder="email" value="eve.holt@reqres.in" />
+              <input name="password" id="password"
+                class="shadow appearance-none border rounded w-full my-2 py-2 px-4 focus:outline-none focus:shadow-outline"
+                placeholder="password" />
+            </div>
+            <div class="m-2 flex">
+              <button type="submit" class="m-2 w-full rounded shadow py-2 bg-white text-2xl">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/index.ts"></script>
+</body>
+
 </html>
