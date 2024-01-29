@@ -1,3 +1,3 @@
-import webSocketSubject from "./websocket-config";
+import webSocketSubject from "./websocket-playground";
 
 webSocketSubject
