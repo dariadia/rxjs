@@ -6,17 +6,11 @@ const clicks = fromEvent(body, 'mousedown').pipe(
   tap((event: MouseEvent) => console.log(event.pageX, event.pageY))
 )
 
-/**
- * 1. Create a new AsyncSubject and specify the generic type
- *    `MouseEvent` for the next notification..
- */
+// Create a new AsyncSubject and specify the generic type `MouseEvent` for the next notification.
 const asyncSubject = new AsyncSubject<MouseEvent>()
 
-/**
- * 2. Subscribe to the `AsyncSubject` and set the `x` and `y`
- *    input values to the `pageX` and `pageY` values from the
- *    `MouseEvent` object.
- */
+// Subscribe to the `AsyncSubject` and set the `x` and `y` 
+// input values to the `pageX` and `pageY` from the `MouseEvent`
 const x = document.querySelector('#x') as HTMLInputElement
 const y = document.querySelector('#y') as HTMLInputElement
 asyncSubject.subscribe((event) => {
@@ -24,15 +18,10 @@ asyncSubject.subscribe((event) => {
   y.value = event.pageY.toString()
 })
 
-/**
- * 3. Subscribee to the `clicks` observable using the `AsyncSubject`
- *    instance as the Observer.
- */
+// Subscribee to the `clicks` observable with the `AsyncSubject` as the Observer.
 clicks.subscribe(asyncSubject)
 
-/**
- * 4. Complete the `AsyncSubject` when the button is clicked.
- */
+// Complete the `AsyncSubject` when the button is clicked.
 const btn = document.querySelector('#btn') as HTMLButtonElement
 fromEvent(btn, 'click')
   .pipe(
