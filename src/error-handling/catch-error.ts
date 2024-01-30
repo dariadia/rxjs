@@ -1,5 +1,6 @@
-import { defer, Subject, throwError } from 'rxjs'
-import { catchError, tap } from 'rxjs/operators'
+import { defer, fromEvent, Subject, throwError } from 'rxjs'
+import { ajax } from 'rxjs/ajax'
+import { catchError, mergeMap, tap } from 'rxjs/operators'
 
 // catchError() is similar to the built-in try...catch in JavaScript.
 // The catchError() Operator catches an error notification along with the original Observable that emitted the error notification, and returns a new Observable.
@@ -32,3 +33,33 @@ defer(() => {
 
 subject.next(1)
 subject.next(2)
+
+
+// Another sample
+
+const login = document.getElementById('login') as HTMLFormElement;
+const email = document.getElementById('email') as HTMLInputElement;
+const password = document.getElementById('password') as HTMLInputElement;
+fromEvent(login, 'submit')
+  .pipe(
+    tap((event) => event.preventDefault()),
+    mergeMap((event) =>
+      ajax
+        .post('https://reqres.in/api/login', {
+          email: email.value,
+          password: password.value
+        })
+        .pipe(
+          catchError((error) => {
+            debugger;
+            console.error(error);
+            return throwError(error);
+          })
+        )
+    )
+  )
+  .subscribe({
+    error: (e) => console.error('observer', e),
+    next: (value) => console.log('next', value),
+    complete: () => console.log('complete')
+  });
