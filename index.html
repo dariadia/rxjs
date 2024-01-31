@@ -2,9 +2,36 @@
   <head>
     <title>Sandbox</title>
     <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <div id="app"></div>
+    <div class="h-screen flex flex-col">
+      <div
+        class="bg-white flex border-b px-5 py-3 items-center justify-between"
+      >
+        <h1 class="text-lg text-purple-800">RxJS Course</h1>
+        <img
+          src="https://rxjs-course.dev/img/logo.png"
+          class="object-contain h-12"
+        />
+      </div>
+      <div class="bg-purple-100 flex-grow">
+        <div
+          class="container mx-auto h-full w-full flex items-center justify-center"
+        >
+          <div class="flex flex-col items-stretch w-full">
+            <textarea
+              id="output"
+              class="m-4 border rounded h-48"
+            ></textarea>
+          <button id="btn" class="m-4 rounded border bg-white py-2 px-4">Fetch Random User</button>
+        </div>
+      </div>
+    </div>
     <script src="src/index.ts"></script>
   </body>
 </html>
