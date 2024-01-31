@@ -23,11 +23,11 @@ const getter = fromEvent(btn, 'click')
   .pipe(
     map(() => random(10, 15)),
     mergeMap((id) => {
-      console.log("will try and fetch")
+      console.log("will try and fetch", id)
       return ajax.getJSON<UserResponse>(`https://reqres.in/api/users/${id}`).pipe(
         map((response) => response.data),
         catchError((error) => {
-          output.value += `\n\n${error.message}`
+          output.value += `Error is: \n\n${error.message}`
           output.scrollTop = output.scrollHeight
           return throwError(error)
         })
