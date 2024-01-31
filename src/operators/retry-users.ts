@@ -13,7 +13,7 @@ interface UserResponse {
   }
 }
 
-const random = (max: number, min: number): number => 
+const random = (max: number, min: number): number =>
   Math.floor(Math.random() * (max - min + 1)) + min
 
 const output = document.getElementById('output') as HTMLTextAreaElement
@@ -24,7 +24,7 @@ const getter = fromEvent(btn, 'click')
     map(() => random(10, 15)),
     mergeMap((id) => {
       console.log("will try and fetch")
-        return ajax.getJSON<UserResponse>(`https://reqres.in/api/users/${id}`).pipe(
+      return ajax.getJSON<UserResponse>(`https://reqres.in/api/users/${id}`).pipe(
         map((response) => response.data),
         catchError((error) => {
           output.value += `\n\n${error.message}`
@@ -32,7 +32,7 @@ const getter = fromEvent(btn, 'click')
           return throwError(error)
         })
       )
-      }
+    }
     ),
     retry(4),
     finalize(() => {
