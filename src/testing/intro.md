@@ -22,3 +22,6 @@ export interface RunHelpers {
 - hot() provides a hot observable. The primary distinction between a cold and hot observable when testing is the ability to test for notification upon subscribing.
 - flush() provides the ability to manually execute the scheduled assertions created using either the expectObservable() or expectSubscription function.
 
+We'll use a string syntax to represent an Observable and Subscriptions. This string syntax is meant to model an Observable, or Subscription, over time. 
+
+> The beauty of marble testing with Observables is that we can synchronously test asynchronous Observables.
