@@ -32,3 +32,6 @@ describe('getting started with RxJS testing with marbles', () => {
     })
   })
 })
+
+/* First we define the source Observable, which emits an incrementing integer starting from 0 every 100 milliseconds. If the value emitted is greater than 0 the Observable emits an error notification that is triggered by the throwError() operator.
+The expected behavior is such that after 100 milliseconds the source Observable emits a next notification with the value 0. We progress the virtual time 99 milliseconds (or 99 frames) and then expect an error notification on frame 200. */
